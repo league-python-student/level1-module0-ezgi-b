@@ -5,7 +5,17 @@ import random
 
 
 def find_the_diamond(the_murder=None):
-    pass
+    killed = 0
+    for index, crow in enumerate(the_murder):
+        guilty = False
+        for index, thing in enumerate(crow.stomach_contents):
+            if thing == "diamond":
+                guilty = True
+        if guilty:
+            break
+        else:
+            killed += 1
+    print("The number of innocent crows killed was", str(killed) + ". The culprit was", the_murder[killed].name)
     # TODO 1) One of the Crows has eaten the diamond. You need to search
     #  through the stomach of each Crow, then print the name of the
     #  guilty Crow. The input parameter contains the list of Crow objects.
