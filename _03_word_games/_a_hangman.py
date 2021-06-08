@@ -9,7 +9,7 @@ from tkinter import messagebox
 def setup_new_word(word_to_guess):
     underscore_str = ""
     for i in range(len(word_to_guess)):
-        underscore_str.append("_")
+        underscore_str += "_"
     return underscore_str
 
 # TODO 2) Complete the function to return whether the letter is in
@@ -29,10 +29,10 @@ def check_letter_in_word(word_to_guess, letter):
 #  Remember that strings can't be changed directly!
 def replace_letter_in_word(word_to_guess, current_guess, letter):
     index = -1
-    while word_to_guess.find(letter, index + 1) > 0:
+    while word_to_guess.find(letter, index + 1) >= 0:
         index = word_to_guess.find(letter, index + 1)
-
-    return str()
+        current_guess = current_guess[0:index] + letter + current_guess[index + 1:]
+    return current_guess
 
 # ====================== DO NOT EDIT THE CODE BELOW ===========================
 
